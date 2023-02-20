@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel=icon href="/static/img/favicon.ico" type="image/x-icon" sizes="32x32">
+	<FONT face="arial">
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de démo</title>
+    {% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="/static/css/form.css" /> </head>
+    {% endblock stylesheet %}
+</head>
+<body>
+    <section class="form">
+        <section id="title">
+            <div class="form_titre">
+                <h1 class="h1">
+                    Envoyez-nous un mail pour une demande de démo
+                </h1>
+            </div>
+        </section>
+        <div class="formulaire">
+            <form class="FORM" name="Formulaire" onsubmit="return(validate());" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="bouton" type="submit" value="Envoyer" onclick="thanks()">Envoyer</button>
+            </form>
+        </div>
+    </section>
+    <div class="retour">
+        <button class="Back" value="Retour" type = "button" onclick='window.location.href="/myapp"'>
+            Retour
+        </button>
+    </div>
+    {% block javascript %}
+    <script src="/static/js/form.js"></script>
+	{% endblock javascript %}
+</FONT>
+</body>
+</html>
